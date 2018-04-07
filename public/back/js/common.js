@@ -30,7 +30,7 @@ $(function () {
     $('#logoutModal').modal("show");
   });
 
-  //点击退出点击事件
+  //点击退出注册点击事件
   $('#logoutBtn').click(function () {
     $.ajax({
       url:'/employee/employeeLogout',
