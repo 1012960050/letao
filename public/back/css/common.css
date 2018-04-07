@@ -88,7 +88,6 @@ html,body {
 .it-main {
   padding-top: 50px;
   padding-left:180px;
-  background-color: pink;
   height: 100%;
   transition: all 1s;
 }
