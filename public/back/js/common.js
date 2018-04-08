@@ -2,6 +2,18 @@
  * Created by Administrator on 2018/4/6 0006.
  */
 $(function () {
+  //拦截登录功能
+  if(location.href.indexOf("login.html") === -1){
+      $.ajax({
+      url:'/employee/checkRootLogin',
+      success:function (info) {
+        console.log(info.error);
+        if(info.error==400){
+          location.href = "login.html";
+        }
+      }
+    });
+  }
   //禁用小圆环
   NProgress.configure({ showSpinner: false });
   //进度条插件

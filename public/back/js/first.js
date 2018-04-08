@@ -17,7 +17,6 @@ $(function () {
       success:function (info) {
         //console.log(info);
         $('tbody').html(template('firstTpl',info));
-
         $('#paginator').bootstrapPaginator({
           bootstrapMajorVersion:3,
           currentPage:info.page,
