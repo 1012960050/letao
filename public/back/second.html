@@ -79,21 +79,32 @@
         <h4 class="modal-title">添加分类</h4>
       </div>
       <div class="modal-body">
+        <form id="form">
         <div class="form-group">
         <div class="dropdown">
           <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
             请选择一级分类
             <span class="caret"></span>
           </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <li><a href="#">Action</a></li>
+          <ul class="dropdown-menu" id="dropdown">
+            <!--刨个坑-->
           </ul>
           <input type="hidden" name="categoryId">
         </div>
           </div>
-        <form id="form">
           <div class="form-group">
-            <input type="text" class="form-control" name="categoryName" placeholder="请输入二级分类名称">
+            <input type="text" class="form-control" name="brandName" placeholder="请输入二级分类名称">
+          </div>
+          <div class="form-group">
+            <label class="btn btn-default" for="fileupload">上传图片</label>
+            <input type="file" id="fileupload" style="display: none" name="pic1" data-url="/category/addSecondCategoryPic">
+          </div>
+          <div class="form-group">
+            <img src="images/none.png" width="100" height="100" alt="" id="secondPic">
+            <input type="text" name="brandLogo" style="display: none">
+          </div>
+          <div class="form-group">
+            <input type="text" name="hot" value="1" style="display: none">
           </div>
         </form>
 
@@ -118,8 +129,15 @@
   {{/each }}
 </script>
 
+<script type="text/html" id="dropdownTpl">
+  {{each rows v i}}
+  <li><a href="javascript:;" data-id="{{v.id}}">{{v.categoryName}}</a></li>
+  {{/each }}
+</script>
 
 <script src="lib/jquery/jquery.min.js"></script>
+<script src="lib/jquery-fileupload/jquery.ui.widget.js"></script>
+<script src="lib/jquery-fileupload/jquery.fileupload.js"></script>
 <script src="lib/bootstrap/js/bootstrap.js"></script>
 <script src="lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
 <script src="lib/nprogress/nprogress.js"></script>
